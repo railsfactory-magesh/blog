@@ -1,9 +1,12 @@
 class PostsController < ApplicationController
+
+before_filter :login_required
+
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
-
+    @posts = Post.all(:conditions => ['user_id=?', current_user.id])
+    puts "##################### user = #{current_user.id }"
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
@@ -41,6 +44,8 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
     @post = Post.new(params[:post])
+
+    # @post = Post.new(:title => params[:title], :body => params[:body], :author => params[:author], :user_id => current_user.id)
 
     respond_to do |format|
       if @post.save
