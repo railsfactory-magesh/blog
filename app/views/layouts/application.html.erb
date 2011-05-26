@@ -7,8 +7,32 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
+<div class="container">
+  	<div id="header" class="span-24 last box">
+  	  <h1>Blogda - Magesh's Blogging Engine</h1>
+  	</div>
+        <hr>
+        <div id="sub_header" class="span-24 last">
+          <h3>Life is just trying out things to see if it works!</h3>
+        </div>
+        <hr>
+  	<div class="span-16">
+          <%= yield %>
+  	</div>
+  
+  	<div class="last sidebar" id="sidebar">
+  		
+          <div id="box1" class="">
+            <p>Hi there!<br>
+            I'm Magesh, opensource and web evangelists who love write code in ruby</p>
+          </div>
+          
+  	</div>
+	
+  	<div class="span-24">
+  		The footer
+  	</div>
+  </div>
 
 </body>
 </html>
